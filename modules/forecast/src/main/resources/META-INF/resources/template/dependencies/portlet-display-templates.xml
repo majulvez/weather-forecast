@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<root>
+    <template>
+        <template-key>daily</template-key>
+        <name>daily-template</name>
+        <description>daily-template-description</description>
+        <language>ftl</language>
+        <script-file>META-INF/resources/template/dependencies/daily.ftl</script-file>
+        <cacheable>false</cacheable>
+    </template>
+    <template>
+        <template-key>hourly</template-key>
+        <name>hourly-template</name>
+        <description>hourly-template-description</description>
+        <language>ftl</language>
+        <script-file>META-INF/resources/template/dependencies/hourly.ftl</script-file>
+        <cacheable>false</cacheable>
+    </template>
+</root>

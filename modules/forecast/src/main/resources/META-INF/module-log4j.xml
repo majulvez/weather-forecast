@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="Threshold" value="DEBUG"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ}{Europe/Madrid} %-5p [%t][%c{1}:%L] %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="TEXT_FILE" class="org.apache.log4j.rolling.RollingFileAppender">
+        <param name="Threshold" value="TRACE"/>
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="FileNamePattern" value="${catalina.home}/logs/forecast-portlet.%d{yyyy-MM-dd}.log" />
+            <param name="ActiveFileName" value="${catalina.home}/logs/forecast-portlet.log" />
+        </rollingPolicy>
+
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ}{Europe/Madrid} %-5p [%t][%c{1}:%L] %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="com.miguelangeljulvez.forecast" additivity="false">
+        <level value="TRACE" />
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="TEXT_FILE" />
+    </logger>
+
+</log4j:configuration>

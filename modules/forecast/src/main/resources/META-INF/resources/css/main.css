@@ -1,0 +1,10 @@
+@import "font-awesome.min.css";
+
+.lead1 {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.dayWeek {
+    padding-right: 0;
+}
