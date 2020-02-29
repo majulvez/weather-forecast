@@ -1,3 +1,3 @@
 # README #
 
-https://www.miguelangeljulvez.com/weather-forecast
+https://www.miguelangeljulvez.com/servicios/desarrollo-software/weather-forecast-portlet
