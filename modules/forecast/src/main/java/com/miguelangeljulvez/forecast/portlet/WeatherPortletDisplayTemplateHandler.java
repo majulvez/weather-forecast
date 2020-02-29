@@ -6,7 +6,7 @@ import com.liferay.portal.kernel.portletdisplaytemplate.BasePortletDisplayTempla
 import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateVariableGroup;
 import com.liferay.portal.kernel.util.PortalUtil;
-import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.petra.string.StringPool;
 import com.miguelangeljulvez.forecast.configuration.WeatherPortletInstanceConfiguration;
 import com.miguelangeljulvez.forecast.model.DarkSky;
 import com.miguelangeljulvez.forecast.util.ConversionsUtil;

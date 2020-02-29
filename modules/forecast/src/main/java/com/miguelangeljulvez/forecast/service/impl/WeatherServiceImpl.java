@@ -1,7 +1,7 @@
 package com.miguelangeljulvez.forecast.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
+import com.liferay.portal.kernel.cache.MultiVMPool;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -9,6 +9,7 @@ import com.liferay.portal.kernel.util.Validator;
 import com.miguelangeljulvez.forecast.model.DarkSky;
 import com.miguelangeljulvez.forecast.service.api.WeatherService;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,7 +36,7 @@ public class WeatherServiceImpl implements WeatherService {
 
         final Instant before = Instant.now();
 
-        PortalCache<String, Serializable> portalCache = MultiVMPoolUtil.getPortalCache(DarkSky.class.getName());
+        PortalCache<String, Serializable> portalCache = (PortalCache<String, Serializable>)multiVMPool.getPortalCache(DarkSky.class.getName());
         DarkSky darkSky = (DarkSky)portalCache.get("data-" + portletInstance);
 
         ZonedDateTime utc = ZonedDateTime.now(ZoneOffset.UTC);
@@ -113,5 +114,8 @@ public class WeatherServiceImpl implements WeatherService {
         return sb.toString();
     }
 
-    private static Log _log = LogFactoryUtil.getLog(WeatherServiceImpl.class.getName());
+    @Reference
+    private MultiVMPool multiVMPool;
+
+    private Log _log = LogFactoryUtil.getLog(WeatherServiceImpl.class.getName());
 }

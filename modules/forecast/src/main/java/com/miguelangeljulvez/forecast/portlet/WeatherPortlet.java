@@ -26,10 +26,10 @@ import java.io.IOException;
 import java.util.Map;
 
 @Component(
-	configurationPid =
-				"com.miguelangeljulvez.forecast.configuration.WeatherPortletInstanceConfiguration",
+	configurationPid = "com.miguelangeljulvez.forecast.configuration.WeatherPortletInstanceConfiguration",
 	immediate = true,
 	property = {
+		"com.liferay.fragment.entry.processor.portlet.alias=weather-forecast",
 		"com.liferay.portlet.display-category=category.sample",
 		"com.liferay.portlet.header-portlet-css=/css/main.css",
 		"com.liferay.portlet.header-portlet-javascript=/js/main.js",
@@ -156,6 +156,7 @@ public class WeatherPortlet extends MVCPortlet {
 
 	private ConfigurationProvider _configurationProvider;
 	*/
-	private static Log _log = LogFactoryUtil.getLog(WeatherPortlet.class.getName());
+
+	private  Log _log = LogFactoryUtil.getLog(WeatherPortlet.class.getName());
 
 }

@@ -1,7 +1,7 @@
 package com.miguelangeljulvez.forecast.portlet;
 
 
-import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
+import com.liferay.portal.kernel.cache.MultiVMPool;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.events.ActionException;
 import com.liferay.portal.kernel.events.SimpleAction;
@@ -53,7 +53,7 @@ public class WeatherSimpleAction extends SimpleAction {
     }
 
     private void doRun(long companyId) {
-        PortalCache<String, Serializable> portalCache = MultiVMPoolUtil.getPortalCache(DarkSky.class.getName());
+        PortalCache<String, Serializable> portalCache = (PortalCache<String, Serializable>)multiVMPool.getPortalCache(DarkSky.class.getName());
         portalCache.removeAll();
     }
 
@@ -66,5 +66,8 @@ public class WeatherSimpleAction extends SimpleAction {
 
     private CompanyLocalService _companyLocalService;
 
-    private static Log _log = LogFactoryUtil.getLog(WeatherSimpleAction.class);
+    @Reference
+    private MultiVMPool multiVMPool;
+
+    private Log _log = LogFactoryUtil.getLog(WeatherSimpleAction.class);
 }

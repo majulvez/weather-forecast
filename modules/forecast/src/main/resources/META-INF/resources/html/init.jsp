@@ -11,7 +11,7 @@
 
 <%@ page import="com.liferay.portal.kernel.util.Constants" %>
 <%@ page import="com.liferay.portal.kernel.util.GetterUtil" %>
-<%@ page import="com.liferay.portal.kernel.util.StringPool" %>
+<%@ page import="com.liferay.petra.string.StringPool" %>
 <%@ page import="com.liferay.portal.kernel.util.Validator" %>
 <%@ page import="com.miguelangeljulvez.forecast.configuration.WeatherPortletInstanceConfiguration" %>
 <%@ page import="com.miguelangeljulvez.forecast.model.DarkSky" %>
