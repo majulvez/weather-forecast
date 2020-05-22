@@ -100,9 +100,7 @@
 
 <aui:script>
     function <portlet:namespace/>saveConfiguration() {
-    var Util = Liferay.Util;
-
-    var form = AUI.$(document.<portlet:namespace/>fm);
+    var form = document.getElementById('<portlet:namespace/>fm');
 
     submitForm(form);
     }
@@ -118,8 +116,8 @@
         if (Validator.isNotNull(geoCoordinates)) {
             try {
                 String[] coordinates = geoCoordinates.trim().replaceAll(" ","").split(",");
-                latitude = Double.valueOf(coordinates[0]);
-                longitud = Double.valueOf(coordinates[1]);
+                latitude = Double.parseDouble(coordinates[0]);
+                longitud = Double.parseDouble(coordinates[1]);
             } catch (Throwable t) {}
         }
     %>
